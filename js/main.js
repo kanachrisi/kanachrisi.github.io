@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+  autoPlayYouTubeModal();
+
   /* activate the carousel */
   $("#modal-carousel").carousel({ interval: false });
 
@@ -12,7 +14,7 @@ $(document).ready(function () {
   });
 
   /* when clicking a thumbnail */
-  $(".row .thumbnail").click(function () {
+  $(".row #image-3").click(function () {
     var content = $(".carousel-inner");
     var title = $(".modal-title");
 
@@ -31,5 +33,21 @@ $(document).ready(function () {
     // show the modal
     $("#modal-gallery").modal("show");
   });
+
+  //FUNCTION TO GET AND AUTO PLAY YOUTUBE VIDEO FROM DATATAG
+  function autoPlayYouTubeModal() {
+    var trigger = $("body").find('[data-toggle="modal"]');
+    trigger.click(function () {
+        var theModal = $(this).data("target"),
+        videoSRC = $(this).attr("data-theVideo");
+        videoSRCauto = videoSRC + "?autoplay=1";
+      $(theModal + ' iframe').attr('src', videoSRCauto);
+
+      //Remove the video every time the modal is hidden
+      $(theModal).on('hidden.bs.modal', function () {
+        $(theModal + ' iframe').removeAttr('src');
+      });
+    });
+  }
 
 });

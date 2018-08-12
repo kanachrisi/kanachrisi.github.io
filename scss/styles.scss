@@ -14,11 +14,7 @@ body{
   font-size: $font;
 }
 
-// .education{
-//   background: white;
-//   border: 2px solid $background-color;
-//   border-radius: 20px;
-// }
+
 
 h2{
   color: $primary-color;
@@ -112,8 +108,4 @@ footer p{
 .carousel-control.left,.carousel-control.right{
   background-image:none;
   width:5%;
-}
-
-.modal-body{
-  background-color: black;
 }
